@@ -26,6 +26,7 @@ jobs:
         with:
           playbook: chocomilk/play.yml
           inventory: chocomilk/inventory/hosts.yml
+          verbose: 4
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
