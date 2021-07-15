@@ -21,7 +21,7 @@ jobs:
           path: package
 
       - name: Play Ansible Playbook
-        run: ansible-playbook -i inventory/hosts.yml before.yml
+        run: ansible-playbook -i inventory/hosts.yml -vvv before.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
