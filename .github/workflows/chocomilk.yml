@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v1
 
       - name: Play Ansible Playbook
-        run: ansible-playbook -i inventory/hosts.yml -vvv before.yml
+        run: ansible-playbook -i inventory/hosts.yml -vv before.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
