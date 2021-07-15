@@ -25,6 +25,7 @@ jobs:
         uses: arillso/action.playbook@0.0.3
         with:
           playbook: chocomilk/play.yml
+          inventory: "localhost"
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
