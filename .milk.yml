@@ -39,7 +39,7 @@ deploy:
   - provider: github
     name: "itigo-bot"
     email: "chocomilk@itigo.ch"
-    url: github.com/itigoag/chocolatey.adobe-acrobat-reader-dc.git
+    url: github.com/proacem/chocolatey.adobe-acrobat-reader-dc.git
     key: "{{ lookup('env','GITHUB_API_KEY') }}"
 
 # Notification
