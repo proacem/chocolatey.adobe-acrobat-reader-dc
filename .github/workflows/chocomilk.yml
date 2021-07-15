@@ -19,6 +19,7 @@ jobs:
         with:
           repository: itigoag/chocomilk.git
           path: chocomilk
+          ref: "master"
 
       - name: Play Ansible Playbook
         uses: arillso/action.playbook@0.0.3
