@@ -23,8 +23,8 @@ jobs:
       - name: Play Ansible Playbook
         uses: arillso/action.playbook@0.0.3
         with:
-          playbook: chocomilk/play.yml
-          inventory: chocomilk/inventory/hosts.yml
+          playbook: play.yml
+          inventory: inventory/hosts.yml
           verbose: 4
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
