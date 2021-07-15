@@ -21,7 +21,7 @@ jobs:
           path: chocomilk
 
       - name: Play Ansible Playbook
-        uses: arillso/action.playbook
+        uses: arillso/action.playbook@0.0.3
         with:
           playbook: chocomilk/play.yml
         env:
