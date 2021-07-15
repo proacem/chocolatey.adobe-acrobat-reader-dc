@@ -21,11 +21,17 @@ jobs:
           path: package
 
       - name: Play Ansible Playbook
-        uses: arillso/action.playbook@0.0.3
-        with:
-          playbook: play.yml
-          inventory: inventory/hosts.yml
-          verbose: 4
+        run: ansible-playbook -i inventory/hosts.yml before.yml
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: "false"
+          ANSIBLE_DEPRECATION_WARNINGS: "false"
+          CHOCOLATEY_ITIGO_API_KEY: ${{ secrets.CHOCOLATEY_ITIGO_API_KEY }}
+          MATTERMOST_API_KEY: ${{ secrets.MATTERMOST_API_KEY }}
+          GITHUB_API_KEY: ${{ secrets.GITHUB_TOKEN }}
+          PWD: .
+
+      - name: Play Ansible Playbook
+        run: ansible-playbook -i inventory/hosts.yml play.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
