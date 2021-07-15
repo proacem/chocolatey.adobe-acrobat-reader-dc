@@ -1,0 +1,32 @@
+name: Update
+
+on:
+  push:
+#  schedule:
+#    - cron: '0 0 1 * *'
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: package
+
+      - name: Checkout chocomilk
+        uses: actions/checkout@v2
+        with:
+          repository: itigoag/chocomilk.git
+          path: chocomilk
+
+      - name: Play Ansible Playbook
+        uses: arillso/action.playbook
+        with:
+          playbook: chocomilk/play.yml
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: "false"
+          ANSIBLE_DEPRECATION_WARNINGS: "false"
+          CHOCOLATEY_ITIGO_API_KEY: ${{ secrets.CHOCOLATEY_ITIGO_API_KEY }}
+          MATTERMOST_API_KEY: ${{ secrets.MATTERMOST_API_KEY }}
+          GITHUB_API_KEY: ${{ secrets.GITHUB_TOKEN }}
