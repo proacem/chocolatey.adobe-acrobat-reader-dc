@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: itigoag/chocomilk.git
+          path: chocomilk
           ref: "master"
 
       - uses: actions/checkout@v2
@@ -23,7 +24,7 @@ jobs:
       - uses: actions/setup-python@v1
 
       - name: Play Ansible Playbook
-        run: ansible-playbook -i inventory/hosts.yml -v before.yml
+        run: ansible-playbook -i chocomilk/inventory/hosts.yml -v chocomilk/before.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
@@ -33,7 +34,7 @@ jobs:
           PWD: .
 
       - name: Play Ansible Playbook
-        run: ansible-playbook -i inventory/hosts.yml -vvvv play.yml
+        run: ansible-playbook -i chocomilk/inventory/hosts.yml -vvvv chocomilk/play.yml
         env:
           ANSIBLE_HOST_KEY_CHECKING: "false"
           ANSIBLE_DEPRECATION_WARNINGS: "false"
